@@ -1,5 +1,5 @@
 <script>
-	import base from '$app/paths'
+	import {base} from '$app/paths';
 	import dayjs from 'dayjs';
 	import mx from 'dayjs/locale/es-mx';
 	import relativeTime from 'dayjs/plugin/relativeTime';

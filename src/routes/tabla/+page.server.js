@@ -1,5 +1,5 @@
 import { redirect } from '@sveltejs/kit';
-import base from '$app/paths';
+import { base } from '$app/paths';
 
 export const load = async ({ locals }) => {
 	if (!locals.pb.authStore.isValid) {
