@@ -27,11 +27,11 @@ export const actions = {
 		const data = Object.fromEntries([...formData]);
 		try {
 			const { id } = await locals.pb.collection('users').create(data);
-			console.log(id);
 			await locals.pb.collection('users').authWithPassword(data.username, data.password);
 			const payload = {
 				link: id,
 				isPaying: false,
+				name: data.username,
 				data: {}
 			};
 			await locals.pb.collection('qatar2022').create(payload);
