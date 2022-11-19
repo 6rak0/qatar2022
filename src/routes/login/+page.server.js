@@ -1,9 +1,10 @@
 import { redirect } from '@sveltejs/kit';
 import { invalid } from '@sveltejs/kit';
+import base from '$app/paths';
 
 export const load = ({ locals }) => {
 	if (locals.pb.authStore.isValid) {
-		throw redirect(303, '/');
+		throw redirect(303, `${base}/`);
 	}
 };
 
@@ -13,7 +14,7 @@ export const actions = {
 		const data = Object.fromEntries([...formData]);
 		try {
 			await locals.pb.collection('users').authWithPassword(data.username, data.password);
-			redirect(301, '/');
+			redirect(301, `${base}/`);
 		} catch (error) {
 			console.error(error);
 			return invalid(error.status, {
@@ -35,7 +36,7 @@ export const actions = {
 				data: {}
 			};
 			await locals.pb.collection('qatar2022').create(payload);
-			redirect(301, '/');
+			redirect(301, `${base}/`);
 		} catch (error) {
 			console.error(error);
 			return invalid(error.status, {

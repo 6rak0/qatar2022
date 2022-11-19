@@ -1,5 +1,5 @@
 <script>
-	//import { enhance } from '$app/forms';
+	import base from '$app/paths'
 	import dayjs from 'dayjs';
 	import mx from 'dayjs/locale/es-mx';
 	import relativeTime from 'dayjs/plugin/relativeTime';
@@ -15,7 +15,7 @@
 	};
 
 	const handleSelect = async (e) => {
-		await fetch('/api/update', {
+		await fetch(`${base}/api/update`, {
 			method: 'post',
 			body: JSON.stringify({
 				[e.target.name]: e.target.value

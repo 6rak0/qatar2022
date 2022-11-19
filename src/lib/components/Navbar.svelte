@@ -1,4 +1,5 @@
 <script>
+    import base from '$app/paths'
     export let user;
 </script>
 
@@ -24,22 +25,22 @@
                 tabindex="0"
                 class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
-                <li><a href="/partidos/primera-fase">grupos</a></li>
-                <li><a href="/partidos/ronda-de-16">8vos</a></li>
-                <li><a href="/partidos/cuartos-de-final">4tos</a></li>
-                <li><a href="/partidos/semifinal">semifinal</a></li>
-                <li><a href="/partidos/final">final</a></li>
+                <li><a href={`${base}/partidos/primera-fase`}>grupos</a></li>
+                <li><a href={`${base}/partidos/ronda-de-16`}>8vos</a></li>
+                <li><a href={`${base}/partidos/cuartos-de-final`}>4tos</a></li>
+                <li><a href={`${base}/partidos/semifinal`}>semifinal</a></li>
+                <li><a href={`${base}/partidos/final`}>final</a></li>
             </ul>
         </div>
-        <a href="/" class="btn btn-ghost normal-case text-xl">Qatar 2022</a>
+        <a href={`${base}/`} class="btn btn-ghost normal-case text-xl">Qatar 2022</a>
     </div>
     <div class="navbar-center hidden lg:flex z-50">
         <ul class="menu menu-horizontal p-0">
-            <li><a href="/partidos/primera-fase">grupos</a></li>
-            <li><a href="/partidos/ronda-de-16">8vos</a></li>
-            <li><a href="/partidos/cuartos-de-final">4tos</a></li>
-            <li><a href="/partidos/semifinal">semifinal</a></li>
-            <li><a href="/partidos/final">final</a></li>
+            <li><a href={`${base}/partidos/primera-fase`}>grupos</a></li>
+            <li><a href={`${base}/partidos/ronda-de-16`}>8vos</a></li>
+            <li><a href={`${base}/partidos/cuartos-de-final`}>4tos</a></li>
+            <li><a href={`${base}/partidos/semifinal`}>semifinal</a></li>
+            <li><a href={`${base}/partidos/final`}>final</a></li>
         </ul>
     </div>
     <div class="navbar-end">
@@ -56,11 +57,11 @@
                     tabindex="0"
                     class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
                 >
-                    <li><a href="/logout">salir</a></li>
+                    <li><a href={`${base}/logout`}>salir</a></li>
                 </ul>
             </div>
         {:else}
-            <a href="/login">login</a>
+            <a href={`${base}/login`}>login</a>
         {/if}
     </div>
 </div>
