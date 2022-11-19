@@ -5,10 +5,10 @@ import preprocess from 'svelte-preprocess';
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	kit: {
-		adapter: adapter()
-	},
-	paths: {
-		base: '/qatar2022'
+		adapter: adapter(),
+		paths: {
+			base: '/qatar2022'
+		}
 	},
 	preprocess: [
 		preprocess({
