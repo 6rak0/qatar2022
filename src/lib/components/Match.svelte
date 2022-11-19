@@ -28,7 +28,7 @@
 </script>
 
 <div class="card w-80 bg-base-100 shadow-xl image-full my-4">
-	<figure><img src={`/stadiums/${match.venue}.jpg`} alt="venue" /></figure>
+	<figure><img src={`${base}/stadiums/${match.venue}.jpg`} alt="venue" /></figure>
 	<div class="card-body">
 		<h2 class="card-title self-center">
 			{dayjs(match.datetime).format('dddd DD/MM - HH:mm')}
@@ -38,7 +38,7 @@
 		<div class="container grid grid-cols-5 m-3 justify-start items-center">
 			{#if match.home_team_country}
 				<img
-					src={`/flags/${match.home_team_country}.svg`}
+					src={`${base}/flags/${match.home_team_country}.svg`}
 					alt={match.home_team_country}
 					class="w-8 my-1"
 				/>
@@ -50,7 +50,7 @@
 			{/if}
 			{#if match.away_team_country}
 				<img
-					src={`/flags/${match.away_team_country}.svg`}
+					src={`${base}/flags/${match.away_team_country}.svg`}
 					alt={match.away_team_country}
 					class="w-8 m-y1"
 				/>
