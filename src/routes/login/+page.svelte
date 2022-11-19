@@ -39,7 +39,7 @@
 				>
 				{#if form?.status == 400 }
 					<span>
-						Petición no válida, revisa los datos enviados [código 400]
+						Petición no válida, revisa los datos enviados y asegúrate de haberte registrado primero [código 400]
 					</span>
 				{:else}
 					<span> Servidor no disponible, comunícate con un administrador [código 503] </span>
