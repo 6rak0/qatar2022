@@ -15,16 +15,26 @@
 	};
 
 	const handleSelect = async (e) => {
-		await fetch(`${base}/api/update`, {
-			method: 'post',
-			body: JSON.stringify({
-				[e.target.name]: e.target.value
-			}),
-			headers: {
-				'content-type': 'application/json'
-			}
-		});
+		if(isPlayable(match.datetime)){
+			await fetch(`${base}/api/update`, {
+				method: 'post',
+				body: JSON.stringify({
+					[e.target.name]: e.target.value
+				}),
+				headers: {
+					'content-type': 'application/json'
+				}
+			});
+		} else return
 	};
+
+	const displayGoals = (goals) => {
+		if (goals == 0 || goals) {
+			if (goals == 0) {
+				return 0
+			} else return goals
+		} else return '-'
+	} 
 </script>
 
 <div class="card w-80 bg-base-100 shadow-xl image-full my-4">
@@ -43,10 +53,10 @@
 					class="w-8 my-1"
 				/>
 				<p class="text-xl col-span-3">{match.home_team.name}</p>
-				<p class="text-2xl bold">{match.home_team.goals || `-`}</p>
+				<p class="text-2xl bold">{displayGoals(match.home_team.goals)}</p>
 			{:else}
 				<p class="text-xl col-span-4">{match.home_team.name}</p>
-				<p class="text-2xl bold">{match.home_team.goals || `-`}</p>
+				<p class="text-2xl bold">{match.home_team.goals || '-'}</p>
 			{/if}
 			{#if match.away_team_country}
 				<img
@@ -55,7 +65,7 @@
 					class="w-8 m-y1"
 				/>
 				<p class="text-xl col-span-3">{match.away_team.name}</p>
-				<p class="text-2xl bold">{match.away_team.goals || `-`}</p>
+				<p class="text-2xl bold">{displayGoals(match.away_team.goals)}</p>
 			{:else}
 				<p class="text-xl col-span-4">{match.away_team.name}</p>
 				<p class="text-2xl bold">{match.away_team.goals || `-`}</p>
