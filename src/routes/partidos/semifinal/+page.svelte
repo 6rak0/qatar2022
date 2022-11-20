@@ -2,11 +2,18 @@
 	import { matches } from '$lib/stores';
 	import Match from '$lib/components/Match.svelte';
 	export let data;
-	const filteredMatches = $matches.filter((match) => match.stage_name === 'Semi-final');
 </script>
 
-<section class="grid md:grid-cols-2 place-items-center">
-	{#each filteredMatches as match}
-		<Match {match} link={data.link.data} />
-	{/each}
+<section class="grid md:grid-cols-2 lg:grid-cols-3 place-items-center">
+	{#await $matches}
+		<p>...waiting</p>
+	{:then matches}
+		{#each matches as match}
+			{#if match.stage_name === 'Semi-final'}
+			<Match {match} link={data.link.data} />
+			{/if}
+		{/each}
+	{:catch error}
+		<p style="color: red">{error.message}</p>
+	{/await}
 </section>

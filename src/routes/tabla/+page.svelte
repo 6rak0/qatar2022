@@ -1,6 +1,5 @@
 <script>
 	import { matches, predictions } from '$lib/stores';
-	const filteredMatches = $matches.filter((match) => match.stage_name === 'First stage');
 </script>
 
 <div class="overflow-x-auto">
@@ -8,15 +7,17 @@
 		<thead>
 			<tr>
 				<th>nombre</th>
-				<!-- {#await $matches}
+				{#await $matches}
 					<p>...waiting</p>
-				{:then matches} -->
-				{#each filteredMatches as match}
-					<th>{match.home_team_country || 'TBD'} - {match.away_team_country || 'TBD'}</th>
-				{/each}
-				<!-- {:catch error}
+				{:then matches}
+					{#each matches as match}
+						{#if match.stage_name === 'First stage'}
+							<th>{match.home_team_country || 'TBD'} - {match.away_team_country || 'TBD'}</th>
+						{/if}
+					{/each}
+				{:catch error}
 					<p style="color: red">{error.message}</p>
-				{/await} -->
+				{/await}
 				<th>puntos</th>
 			</tr>
 		</thead>
@@ -61,20 +62,20 @@
 						<td>{item.data[32] || '-'}</td>
 						<td>{item.data[33] || '-'}</td>
 						<td>{item.data[34] || '-'}</td>
-						<td>{item.data[35] || '-'}</td>
 						<td>{item.data[36] || '-'}</td>
-						<td>{item.data[37] || '-'}</td>
+						<td>{item.data[35] || '-'}</td>
 						<td>{item.data[38] || '-'}</td>
-						<td>{item.data[39] || '-'}</td>
+						<td>{item.data[37] || '-'}</td>
 						<td>{item.data[40] || '-'}</td>
-						<td>{item.data[41] || '-'}</td>
+						<td>{item.data[39] || '-'}</td>
 						<td>{item.data[42] || '-'}</td>
-						<td>{item.data[43] || '-'}</td>
+						<td>{item.data[41] || '-'}</td>
 						<td>{item.data[44] || '-'}</td>
-						<td>{item.data[45] || '-'}</td>
+						<td>{item.data[43] || '-'}</td>
 						<td>{item.data[46] || '-'}</td>
-						<td>{item.data[47] || '-'}</td>
+						<td>{item.data[45] || '-'}</td>
 						<td>{item.data[48] || '-'}</td>
+						<td>{item.data[47] || '-'}</td>
 						<!-- <td>{item.data[49] || '-'}</td>
 						<td>{item.data[50] || '-'}</td>
 						<td>{item.data[51] || '-'}</td>
@@ -101,15 +102,17 @@
 		<tfoot>
 			<tr>
 				<th>nombre</th>
-				<!-- {#await $matches}
-								<p>...waiting</p>
-							{:then matches} -->
-				{#each filteredMatches as match}
-					<th>{match.home_team_country || 'TBD'} - {match.away_team_country || 'TBD'}</th>
-				{/each}
-				<!-- {:catch error}
-								<p style="color: red">{error.message}</p>
-							{/await} -->
+				{#await $matches}
+					<p>...waiting</p>
+				{:then matches}
+					{#each matches as match}
+						{#if match.stage_name === 'First stage'}
+							<th>{match.home_team_country || 'TBD'} - {match.away_team_country || 'TBD'}</th>
+						{/if}
+					{/each}
+				{:catch error}
+					<p style="color: red">{error.message}</p>
+				{/await}
 				<th>puntos</th>
 			</tr>
 		</tfoot>
