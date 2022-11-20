@@ -25,6 +25,7 @@
                 tabindex="0"
                 class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
+                <li><a href={`${base}/tabla`}>tabla</a></li>
                 <li><a href={`${base}/partidos/primera-fase`}>grupos</a></li>
                 <li><a href={`${base}/partidos/ronda-de-16`}>8vos</a></li>
                 <li><a href={`${base}/partidos/cuartos-de-final`}>4tos</a></li>
@@ -36,6 +37,7 @@
     </div>
     <div class="navbar-center hidden lg:flex z-50">
         <ul class="menu menu-horizontal p-0">
+            <li><a href={`${base}/tabla`}>tabla</a></li>
             <li><a href={`${base}/partidos/primera-fase`}>grupos</a></li>
             <li><a href={`${base}/partidos/ronda-de-16`}>8vos</a></li>
             <li><a href={`${base}/partidos/cuartos-de-final`}>4tos</a></li>

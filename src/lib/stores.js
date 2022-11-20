@@ -13,16 +13,16 @@ const getPredictions = async () => {
 	return predictions;
 };
 
-// const getData = async () => {
-// 	try {
-// 		const res = await fetch('https://worldcupjson.net/matches');
-// 		const data = res.json();
-// 		return data;
-// 	} catch (err) {
-// 		console.error(err);
-// 		return [];
-// 	}
-// };
+const getData = async () => {
+	try {
+		const res = await fetch('https://worldcupjson.net/matches');
+		const data = res.json();
+		return data;
+	} catch (err) {
+		console.error(err);
+		return [];
+	}
+};
 
 // export const matches = readable(getData(), (set) => {
 // 	const interval = setInterval(async () => {
@@ -36,4 +36,14 @@ const getPredictions = async () => {
 
 export const matches = readable(data);
 
-export const predictions = readable(getPredictions());
+//export const predictions = readable(getPredictions());
+
+export const predictions = readable(getPredictions(), (set) => {
+	const interval = setInterval(async () => {
+		set(await getPredictions());
+	}, 60000);
+
+	return function () {
+		clearInterval(interval);
+	};
+});
