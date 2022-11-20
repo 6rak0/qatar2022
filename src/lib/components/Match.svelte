@@ -1,5 +1,5 @@
 <script>
-	import {base} from '$app/paths';
+	import { base } from '$app/paths';
 	import dayjs from 'dayjs';
 	import mx from 'dayjs/locale/es-mx';
 	import relativeTime from 'dayjs/plugin/relativeTime';
@@ -10,7 +10,7 @@
 	export let link;
 
 	const isPlayable = (date) => {
-		if (dayjs(date).diff(dayjs(), 'w', true) < 1) return true;
+		if (dayjs(date).diff(dayjs(), 'm', true) > 5) return true;
 		else return false;
 	};
 
@@ -74,6 +74,25 @@
 				<option value="DRAW">Empate</option>
 				<option value={match.away_team_country}>{match.away_team.name}</option>
 			</select>
+		{:else}
+			<p class="text-xl bold text-center">elegiste</p>
+			{#if link[match.id] === 'DRAW'}
+				<div class="draw">
+					<p class="text-2xl">empate</p>
+				</div>
+			{:else}
+				<img src={`${base}/flags/${link[match.id]}.svg`} alt="flag" class="w-8 my-1 self-center" />
+			{/if}
 		{/if}
 	</div>
 </div>
+
+<style>
+	.draw {
+		margin: 5px;
+		padding: 8px;
+		border-radius: 10px;
+		background: hsl(var(--p));
+		text-align: center;
+	}
+</style>
