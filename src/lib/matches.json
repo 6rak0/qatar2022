@@ -11,7 +11,7 @@
 		"away_team_country": "ECU",
 		"datetime": "2022-11-20T16:00:00Z",
 		"winner": null,
-		"winner_code": null,
+		"winner_code": "ECU",
 		"home_team": {
 			"country": "QAT",
 			"name": "Qatar",
@@ -39,7 +39,7 @@
 		"away_team_country": "IRN",
 		"datetime": "2022-11-21T13:00:00Z",
 		"winner": null,
-		"winner_code": null,
+		"winner_code": "ENG",
 		"home_team": {
 			"country": "ENG",
 			"name": "England",
@@ -67,7 +67,7 @@
 		"away_team_country": "NED",
 		"datetime": "2022-11-21T16:00:00Z",
 		"winner": null,
-		"winner_code": null,
+		"winner_code": "NED",
 		"home_team": {
 			"country": "SEN",
 			"name": "Senegal",
@@ -95,7 +95,7 @@
 		"away_team_country": "WAL",
 		"datetime": "2022-11-21T19:00:00Z",
 		"winner": null,
-		"winner_code": null,
+		"winner_code": "DRAW",
 		"home_team": {
 			"country": "USA",
 			"name": "United States",

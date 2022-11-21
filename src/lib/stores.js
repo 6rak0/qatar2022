@@ -16,7 +16,7 @@ const getData = async (endpoint) => {
 	try {
 		const res = await fetch(`https://worldcupjson.net/${endpoint}`);
 		const data = res.json();
-		console.log(data);
+		//console.log(data);
 		return data;
 	} catch (err) {
 		console.error(err);
@@ -34,6 +34,8 @@ export const matches = readable(getData('matches'), (set) => {
 	};
 });
 
+//export const matches = readable([]);
+
 export const predictions = readable(getPredictions(), (set) => {
 	const interval = setInterval(async () => {
 		set(await getPredictions());
@@ -44,6 +46,6 @@ export const predictions = readable(getPredictions(), (set) => {
 	};
 });
 
-//export const matches = readable(data);
+//export const matchesTest = readable(data);
 
 //export const predictions = readable(getPredictions());
