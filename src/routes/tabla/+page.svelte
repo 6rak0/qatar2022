@@ -5,7 +5,13 @@
 		const m = [...await $matches]
 		let sum = 0
 		Object.entries(item).forEach((entry) => {
-			if(entry[1] === (m[entry[0]-1].winner_code).toUpperCase()){
+			let winner
+			if (m[entry[0]-1].winner_code){
+				winner = m[entry[0]-1].winner_code
+			} else {
+				winner = 'null'
+			}
+			if(entry[1] === winner.toUpperCase()){
 				sum++
 			}
 		})
