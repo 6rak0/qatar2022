@@ -1,5 +1,6 @@
 <script>
 	import { matches, predictions} from '$lib/stores'
+	import Spinner from '$lib/components/Spinner.svelte'
 		
 	const calculateScore = async (item) => {
 		const m = [...await $matches]
@@ -25,7 +26,7 @@
 			<tr>
 				<th>nombre</th>
 				{#await $matches}
-					<p>...waiting</p>
+					<Spinner />
 				{:then matches}
 					{#each matches as match}
 						{#if match.stage_name === 'First stage'}
@@ -40,7 +41,7 @@
 		</thead>
 		<tbody class="text-center">
 			{#await $predictions}
-				<p>...waiting</p>
+				<Spinner />
 			{:then predictions}
 				{#each predictions as {name, data, isPaying}}
 					<tr>
@@ -135,7 +136,7 @@
 			<tr>
 				<th>nombre</th>
 				{#await $matches}
-					<p>...waiting</p>
+					<Spinner />
 				{:then matches}
 					{#each matches as match}
 						{#if match.stage_name === 'First stage'}

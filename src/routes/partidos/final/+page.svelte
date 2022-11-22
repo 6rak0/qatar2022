@@ -1,12 +1,13 @@
 <script>
 	import { matches } from '$lib/stores';
 	import Match from '$lib/components/Match.svelte';
+	import Spinner from '$lib/components/Spinner.svelte'
 	export let data;
 </script>
 
 <section class="grid md:grid-cols-2 lg:grid-cols-3 place-items-center">
 	{#await $matches}
-		<p>...waiting</p>
+		<Spinner />
 	{:then matches}
 		{#each matches as match}
 			{#if (match.stage_name === 'Play-off for third place') || (match.stage_name === 'Final')}

@@ -1,6 +1,7 @@
 <script>
 	import { today, tomorrow } from '$lib/stores';
 	import Match from '$lib/components/Match.svelte';
+	import Spinner from '$lib/components/Spinner.svelte'
 	export let data;
 </script>
 
@@ -10,7 +11,7 @@
 	<h1 class="text-center text-3xl">próximos partidos</h1>
 	<div class="container grid md:grid-cols-2 lg:grid-cols-3 place-items-center">
 		{#await $today}
-			<p>...waiting</p>
+			<Spinner />
 		{:then matches}
 			{#each matches as match}
 				<Match {match} link={data.link.data} />
@@ -21,7 +22,7 @@
 	</div>
 	<div class="container grid md:grid-cols-2 lg:grid-cols-3 place-items-center">
 		{#await $tomorrow}
-			<p>...waiting</p>
+			<Spinner />
 		{:then matches}
 			{#each matches as match}
 				<Match {match} link={data.link.data} />
