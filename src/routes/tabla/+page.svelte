@@ -45,7 +45,7 @@
 			{:then predictions}
 				{#each predictions as {name, data, isPaying}}
 					<tr>
-						<th>
+						<th class="text-left">
 							{#if isPaying}
 								<div class="indicator">
 						  			<span class="indicator-item indicator-middle indicator-start badge badge-primary">$</span> 
