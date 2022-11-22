@@ -7,7 +7,7 @@
 <section class="grid place-items-center">
 	<!-- The button to open modal -->
 	<label for="my-modal-3" class="btn my-6">información</label>
-	<h1 class="text-center text-3xl">partidos de hoy</h1>
+	<h1 class="text-center text-3xl">próximos partidos</h1>
 	<div class="container grid md:grid-cols-2 lg:grid-cols-3 place-items-center">
 		{#await $today}
 			<p>...waiting</p>
@@ -19,7 +19,6 @@
 			<p style="color: red">{error.message}</p>
 		{/await}
 	</div>
-	<h1 class="text-center text-3xl">partidos de mañana</h1>
 	<div class="container grid md:grid-cols-2 lg:grid-cols-3 place-items-center">
 		{#await $tomorrow}
 			<p>...waiting</p>
@@ -40,13 +39,12 @@
 			<div class="p-6 text-lg">
 				<p class="text-3xl">hola</p>
 				<p class="m-5">
+					la tabla de predicciones general está lista y ya aparecen los puntos, también aparece un $ al lado de las personas que decidieron entrar con una cuota de $50, si quieren participar por el premio monetario avísenme por favor
+				</p>
+				<p class="m-5">
 					si decides cambiar de opinión sobre algún resultado basta con elegir tu nueva predicción
 					para que se actualice en la base de datos, obviamente esto solo estará disponible hasta 5
 					minutos antes de que el partido comience
-				</p>
-				<p class="m-5">
-					la tabla de predicciones general está lista y ya aparecen los puntos, me falta ponerlos en
-					orden de mayor a menor puntuación
 				</p>
 				<p class="m-5">si tienes más dudas contáctame</p>
 			</div>

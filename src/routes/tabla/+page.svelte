@@ -42,9 +42,18 @@
 			{#await $predictions}
 				<p>...waiting</p>
 			{:then predictions}
-				{#each predictions as {name, data}}
+				{#each predictions as {name, data, isPaying}}
 					<tr>
-						<th>{name}</th>
+						<th>
+							{#if isPaying}
+								<div class="indicator">
+						  			<span class="indicator-item indicator-middle indicator-start badge badge-primary">$</span> 
+									<p class="pl-4">{name}</p>
+								</div>
+							{:else}
+								{name}
+							{/if}
+						</th>
 						<td>{data[1] || '-'}</td>
 						<td>{data[2] || '-'}</td>
 						<td>{data[3] || '-'}</td>
