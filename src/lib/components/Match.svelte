@@ -37,7 +37,7 @@
 	} 
 </script>
 
-<div class="card w-80 bg-base-100 shadow-xl image-full my-4">
+<div class="card w-72 bg-base-100 shadow-xl image-full m-8">
 	<figure><img src={`${base}/stadiums/${match.venue}.jpg`} alt="venue" /></figure>
 	<div class="card-body">
 		<h2 class="card-title self-center">

@@ -9,7 +9,7 @@
 	<!-- The button to open modal -->
 	<label for="my-modal-3" class="btn my-6">información</label>
 	<h1 class="text-center text-3xl">próximos partidos</h1>
-	<div class="container grid md:grid-cols-2 lg:grid-cols-3 place-items-center">
+	<div class="flex flex-wrap justify-center">
 		{#await $today}
 			<Spinner />
 		{:then matches}
@@ -20,7 +20,7 @@
 			<p style="color: red">{error.message}</p>
 		{/await}
 	</div>
-	<div class="container grid md:grid-cols-2 lg:grid-cols-3 place-items-center">
+	<div class="flex flex-wrap justify-center">
 		{#await $tomorrow}
 			<Spinner />
 		{:then matches}
