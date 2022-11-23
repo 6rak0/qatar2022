@@ -24,7 +24,7 @@
 							</tr>
 						</thead>
 						<tbody>
-							{#each teams as { country, name, group_points, wins, draws, losses }}
+							{#each teams.sort((a,b)=> b.group_points - a.group_points) as { country, name, group_points, wins, draws, losses }}
 								<tr>
 									<th>
 										<div class="flex items-center">

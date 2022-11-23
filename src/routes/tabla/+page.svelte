@@ -1,23 +1,7 @@
 <script>
-	import { matches, predictions} from '$lib/stores'
+	import { matches } from '$lib/stores'
 	import Spinner from '$lib/components/Spinner.svelte'
-		
-	const calculateScore = async (item) => {
-		const m = [...await $matches]
-		let sum = 0
-		Object.entries(item).forEach((entry) => {
-			let winner
-			if (m[entry[0]-1].winner_code){
-				winner = m[entry[0]-1].winner_code
-			} else {
-				winner = 'null'
-			}
-			if(entry[1] === winner.toUpperCase()){
-				sum++
-			}
-		})
-		return sum
-	}
+	export let data
 </script>
 
 <div class="overflow-x-auto">
@@ -25,6 +9,7 @@
 		<thead>
 			<tr>
 				<th>nombre</th>
+				<th>puntos</th>
 				{#await $matches}
 					<Spinner />
 				{:then matches}
@@ -36,14 +21,13 @@
 				{:catch error}
 					<p style="color: red">{error.message}</p>
 				{/await}
-				<th>puntos</th>
 			</tr>
 		</thead>
 		<tbody class="text-center">
-			{#await $predictions}
+			<!-- {#await $predictions}
 				<Spinner />
-			{:then predictions}
-				{#each predictions as {name, data, isPaying}}
+			{:then predictions} -->
+				{#each data.predictions.sort((a,b)=>b.points-a.points) as {name, data, isPaying, points}}
 					<tr>
 						<th class="text-left">
 							{#if isPaying}
@@ -55,6 +39,7 @@
 								{name}
 							{/if}
 						</th>
+						<td>{points}</td>
 						<td>{data[1] || '-'}</td>
 						<td>{data[2] || '-'}</td>
 						<td>{data[3] || '-'}</td>
@@ -119,22 +104,23 @@
 						<td>{data[62] || '-'}</td>
 						<td>{data[63] || '-'}</td>
 						<td>{data[64] || '-'}</td> -->
-						{#await calculateScore(data)}
+						<!-- {#await calculateScore(data)}
 							<p>...waiting</p>
 						{:then score}
 							<td>{score}</td>
 						{:catch error}
 							<p style="color: red">{error.message}</p>
-						{/await}
+						{/await} -->
 					</tr>
 				{/each}
-			{:catch error}
+			<!-- {:catch error}
 				<p style="color: red">{error.message}</p>
-			{/await}
+			{/await} -->
 		</tbody>
 		<tfoot>
 			<tr>
 				<th>nombre</th>
+				<th>puntos</th>
 				{#await $matches}
 					<Spinner />
 				{:then matches}
@@ -146,7 +132,6 @@
 				{:catch error}
 					<p style="color: red">{error.message}</p>
 				{/await}
-				<th>puntos</th>
 			</tr>
 		</tfoot>
 	</table>

@@ -40,9 +40,6 @@
 			<div class="p-6 text-lg">
 				<p class="text-3xl">hola</p>
 				<p class="m-5">
-					la tabla de predicciones general está lista y ya aparecen los puntos, también aparece un $ al lado de las personas que decidieron entrar con una cuota de $50, si quieren participar por el premio monetario avísenme por favor
-				</p>
-				<p class="m-5">
 					si decides cambiar de opinión sobre algún resultado basta con elegir tu nueva predicción
 					para que se actualice en la base de datos, obviamente esto solo estará disponible hasta 5
 					minutos antes de que el partido comience
