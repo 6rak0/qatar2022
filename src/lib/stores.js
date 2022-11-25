@@ -41,13 +41,3 @@ export const tomorrow = readable(getData('matches/tomorrow'), (set) => {
 		clearInterval(interval);
 	};
 });
-
-export const teams = readable(getData('teams'), (set) => {
-	const interval = setInterval(() => {
-		set(getData('teams'));
-	}, 600000);
-
-	return function () {
-		clearInterval(interval);
-	};
-});
