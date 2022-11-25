@@ -27,7 +27,8 @@ export const load = async ({ locals }) => {
 				user.points = sum;
 			});
 			return {
-				predictions
+				predictions,
+				matches: matches.filter((match) => match.stage_name === 'First stage')
 			};
 		} catch (err) {
 			console.error(err);

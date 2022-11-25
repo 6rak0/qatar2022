@@ -1,6 +1,4 @@
 <script>
-	import { matches } from '$lib/stores';
-	import Spinner from '$lib/components/Spinner.svelte';
 	export let data;
 </script>
 
@@ -10,17 +8,9 @@
 			<tr>
 				<th>nombre</th>
 				<th>puntos</th>
-				{#await $matches}
-					<Spinner />
-				{:then matches}
-					{#each matches as match}
-						{#if match.stage_name === 'First stage'}
-							<th>{match.home_team_country || 'TBD'} - {match.away_team_country || 'TBD'}</th>
-						{/if}
-					{/each}
-				{:catch error}
-					<p style="color: red">{error.message}</p>
-				{/await}
+				{#each data.matches as match}
+					<th>{match.home_team_country || 'TBD'} - {match.away_team_country || 'TBD'}</th>
+				{/each}
 			</tr>
 		</thead>
 		<tbody class="text-center">
@@ -94,17 +84,9 @@
 			<tr>
 				<th>nombre</th>
 				<th>puntos</th>
-				{#await $matches}
-					<Spinner />
-				{:then matches}
-					{#each matches as match}
-						{#if match.stage_name === 'First stage'}
-							<th>{match.home_team_country || 'TBD'} - {match.away_team_country || 'TBD'}</th>
-						{/if}
-					{/each}
-				{:catch error}
-					<p style="color: red">{error.message}</p>
-				{/await}
+				{#each data.matches as match}
+					<th>{match.home_team_country || 'TBD'} - {match.away_team_country || 'TBD'}</th>
+				{/each}
 			</tr>
 		</tfoot>
 	</table>
