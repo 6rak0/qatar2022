@@ -38,13 +38,12 @@
 		<div class="modal-box relative">
 			<label for="my-modal-3" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
 			<div class="p-6 text-lg">
-				<p class="text-3xl">hola</p>
 				<p class="m-5">
 					si decides cambiar de opinión sobre algún resultado basta con elegir tu nueva predicción
 					para que se actualice en la base de datos, obviamente esto solo estará disponible hasta 5
 					minutos antes de que el partido comience
 				</p>
-				<p class="m-5">si tienes más dudas contáctame</p>
+				<p class="m-5">si tienes más dudas contáctame <a href="https://wa.me/5215628314694">aquí</a></p>
 			</div>
 		</div>
 	</div>

@@ -1,21 +1,10 @@
 import { readable } from 'svelte/store';
-
-const getData = async (endpoint) => {
-	try {
-		const res = await fetch(`https://worldcupjson.net/${endpoint}`);
-		const data = res.json();
-		//console.log(data);
-		return data;
-	} catch (err) {
-		console.error(err);
-		return [];
-	}
-};
+import { getData } from '$lib/helpers';
 
 export const matches = readable(getData('matches'), (set) => {
 	const interval = setInterval(async () => {
 		set(await getData('matches'));
-	}, 600000);
+	}, 60000);
 
 	return function () {
 		clearInterval(interval);
@@ -25,7 +14,7 @@ export const matches = readable(getData('matches'), (set) => {
 export const today = readable(getData('matches/today'), (set) => {
 	const interval = setInterval(async () => {
 		set(await getData('matches'));
-	}, 600000);
+	}, 60000);
 
 	return function () {
 		clearInterval(interval);
@@ -35,7 +24,7 @@ export const today = readable(getData('matches/today'), (set) => {
 export const tomorrow = readable(getData('matches/tomorrow'), (set) => {
 	const interval = setInterval(async () => {
 		set(await getData('matches'));
-	}, 600000);
+	}, 60000);
 
 	return function () {
 		clearInterval(interval);

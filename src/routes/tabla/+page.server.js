@@ -1,24 +1,13 @@
-import { serializeNonPOJOs } from '$lib/helpers';
+import { getData, serializeNonPOJOs } from '$lib/helpers';
 import { redirect } from '@sveltejs/kit';
 import { base } from '$app/paths';
-
-const getMatches = async () => {
-	try {
-		const res = await fetch(`https://worldcupjson.net/matches`);
-		const data = res.json();
-		return data;
-	} catch (err) {
-		console.error(err);
-		return [];
-	}
-};
 
 export const load = async ({ locals }) => {
 	if (!locals.pb.authStore.isValid) {
 		throw redirect(303, `${base}/login`);
 	} else {
 		try {
-			const matches = await getMatches();
+			const matches = await getData('matches');
 			const records = await locals.pb.collection('qatar2022').getFullList();
 			let predictions = serializeNonPOJOs(records);
 
