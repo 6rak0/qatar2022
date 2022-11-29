@@ -5,6 +5,10 @@
 	export let data;
 </script>
 
+<svelte:head>
+	<title>Qatar 2022</title>
+</svelte:head>
+
 <section class="grid place-items-center">
 	<!-- The button to open modal -->
 	<label for="my-modal-3" class="btn my-6">información</label>

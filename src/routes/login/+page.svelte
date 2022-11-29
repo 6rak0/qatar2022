@@ -3,6 +3,10 @@
 	let isSignUp = false;
 </script>
 
+<svelte:head>
+	<title>Qatar 2022 | login</title>
+</svelte:head>
+
 <section class="grid place-items-center" style="min-height: 666px;">
 	{#if form?.success}
 		<div class="alert alert-success shadow-lg">

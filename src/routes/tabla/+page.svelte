@@ -2,6 +2,10 @@
 	export let data;
 </script>
 
+<svelte:head>
+	<title>Qatar 2022 | tabla de puntuación</title>
+</svelte:head>
+
 <div class="overflow-x-auto">
 	<table class="table table-compact table-zebra w-full">
 		<thead>
