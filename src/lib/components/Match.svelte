@@ -81,7 +81,7 @@
 			>
 				<option disabled selected>elige tu resultado</option>
 				<option value={match.home_team_country}>{match.home_team.name}</option>
-				{#if match.stage_name === 'First Stage'}
+				{#if match.stage_name === 'First stage'}
 					<option value="DRAW">Empate</option>
 				{/if}
 				<option value={match.away_team_country}>{match.away_team.name}</option>
