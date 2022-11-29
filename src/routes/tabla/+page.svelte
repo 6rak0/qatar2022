@@ -12,9 +12,10 @@
 			<tr>
 				<th>nombre</th>
 				<th>puntos</th>
-				{#each data.matches as match}
+				{#each data.matches.sort((a,b) => a.id - b.id) as match}
 					<th>{match.home_team_country || 'TBD'} - {match.away_team_country || 'TBD'}</th>
 				{/each}
+				<th>puntos</th>
 			</tr>
 		</thead>
 		<tbody class="text-center">
@@ -67,20 +68,21 @@
 					<td>{data[32] || '-'}</td>
 					<td>{data[33] || '-'}</td>
 					<td>{data[34] || '-'}</td>
-					<td>{data[36] || '-'}</td>
 					<td>{data[35] || '-'}</td>
-					<td>{data[38] || '-'}</td>
+					<td>{data[36] || '-'}</td>
 					<td>{data[37] || '-'}</td>
-					<td>{data[40] || '-'}</td>
+					<td>{data[38] || '-'}</td>
 					<td>{data[39] || '-'}</td>
-					<td>{data[42] || '-'}</td>
+					<td>{data[40] || '-'}</td>
 					<td>{data[41] || '-'}</td>
-					<td>{data[44] || '-'}</td>
+					<td>{data[42] || '-'}</td>
 					<td>{data[43] || '-'}</td>
-					<td>{data[46] || '-'}</td>
+					<td>{data[44] || '-'}</td>
 					<td>{data[45] || '-'}</td>
-					<td>{data[48] || '-'}</td>
+					<td>{data[46] || '-'}</td>
 					<td>{data[47] || '-'}</td>
+					<td>{data[48] || '-'}</td>
+					<td>{points}</td>
 				</tr>
 			{/each}
 		</tbody>
@@ -91,6 +93,7 @@
 				{#each data.matches as match}
 					<th>{match.home_team_country || 'TBD'} - {match.away_team_country || 'TBD'}</th>
 				{/each}
+				<th>puntos</th>
 			</tr>
 		</tfoot>
 	</table>
