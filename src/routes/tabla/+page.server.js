@@ -7,7 +7,8 @@ export const load = async ({ locals }) => {
 		throw redirect(303, `${base}/login`);
 	} else {
 		try {
-			const matches = await getData('matches');
+			let matches = await getData('matches');
+			matches.sort((a, b) => a.id - b.id);
 			const records = await locals.pb.collection('qatar2022').getFullList();
 			let predictions = serializeNonPOJOs(records);
 
