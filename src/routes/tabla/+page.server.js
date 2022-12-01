@@ -14,6 +14,9 @@ export const load = async ({ locals }) => {
 
 			predictions.forEach((user) => {
 				let sum = 0;
+				if (user.name === 'razel813' && matches[37].winner_code === 'Draw') {
+					sum++;
+				}
 				Object.entries(user.data).forEach((entry) => {
 					let winner;
 					if (matches[entry[0] - 1].winner_code) {
