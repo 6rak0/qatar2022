@@ -27,6 +27,7 @@
             >
                 <li><a href={`${base}/grupos`}>grupos</a></li>
                 <li><a href={`${base}/tabla`}>tabla</a></li>
+                <li><a href={`${base}/tabla-finales`}>tabla finales</a></li>
                 <li><a href={`${base}/partidos/primera-fase`}>primera fase</a></li>
                 <li><a href={`${base}/partidos/ronda-de-16`}>8vos</a></li>
                 <li><a href={`${base}/partidos/cuartos-de-final`}>4tos</a></li>
@@ -40,6 +41,7 @@
         <ul class="menu menu-horizontal p-0">
             <li><a href={`${base}/grupos`}>grupos</a></li>
             <li><a href={`${base}/tabla`}>tabla</a></li>
+            <li><a href={`${base}/tabla-finales`}>tabla finales</a></li>
             <li><a href={`${base}/partidos/primera-fase`}>primera fase</a></li>
             <li><a href={`${base}/partidos/ronda-de-16`}>8vos</a></li>
             <li><a href={`${base}/partidos/cuartos-de-final`}>4tos</a></li>
